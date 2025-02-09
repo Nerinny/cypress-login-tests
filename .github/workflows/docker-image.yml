@@ -1,0 +1,25 @@
+
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag login-cypress-tests:$(date +%s) --tag  login-cypress-tests:latest
+    - name: Run the Docker image
+      env:
+        USER: ${{ secrets.USER }}
+        PASSWORD: ${{ secrets.PASSWORD }}
+        FULLNAME: ${{ secrets.FULLNAME }}
+      run: docker run --rm -e CYPRESS_user=$USER -e CYPRESS_password=$PASSWORD -e CYPRESS_fullname=$FULLNAME login-cypress-tests:latest
