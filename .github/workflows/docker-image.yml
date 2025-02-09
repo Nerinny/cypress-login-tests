@@ -22,4 +22,4 @@ jobs:
         USER: ${{ secrets.USER }}
         PASSWORD: ${{ secrets.PASSWORD }}
         FULLNAME: ${{ secrets.FULLNAME }}
-      run: docker run --rm -e CYPRESS_user=$USER -e CYPRESS_password=$PASSWORD -e CYPRESS_fullname=$FULLNAME login-cypress-tests:latest
+      run: docker run --rm -e CYPRESS_user=$USER -e CYPRESS_password='$PASSWORD' -e CYPRESS_fullname='$FULLNAME' login-cypress-tests:latest
