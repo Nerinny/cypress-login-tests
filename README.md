@@ -2,7 +2,7 @@
 Login tests in Cypress.
 
 ## Running solution in GH
-- GH Actions pipeline is available in Actions tab of repository, it runs docker container and generates screenshots which are available in run artifacts. Login credentials are saved as GH secrets.
+- GH Actions pipeline is available in Actions tab of repository, it runs docker container and for debugging generates screenshots on failures which are available in run artifacts. Login credentials are saved as GH secrets.
 
 NOTE: currently a few tests fail in pipeline, because of re-running it a lot of times with wrong password before - they fail on captcha step when they should login successfully. Local run and local docker run are successful.
 
