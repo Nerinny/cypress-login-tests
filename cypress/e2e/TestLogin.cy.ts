@@ -64,7 +64,7 @@ describe("Test login scenarios - GIVEN user is on login page", () => {
   });
 
   context(
-    "WHEN user enters icorrect login information and tries to log in",
+    "WHEN user enters incorrect login information and tries to log in",
     () => {
       beforeEach(() => {
         LoginPage.enterUsername(user.incorrectUser);
